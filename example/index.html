@@ -4,9 +4,19 @@
   </head>
   <body>
     <p>hello world</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
     <script src="./../dist/index.js"></script>
     <script>
-      helloworld(8)
+      console.log()
+      const request = new adAxios({
+        baseUrl: 'https://api.github.com/users/solomonxie'
+      })
+      request.getInstance({
+        method: 'get',
+        url: '/users/solomonxie'
+      })().then(() => {
+        debugger
+      })
     </script>
   </body>
 </html>

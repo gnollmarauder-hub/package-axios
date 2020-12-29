@@ -10,10 +10,14 @@ module.exports = [
   {
     input: resolveFile('src/index.ts'),
     output: {
+      globals: {
+        'axios': 'axios'
+      },
       file: resolveFile('dist/index.js'),
-      format: 'iife',
-      name: 'helloworld',
-    }, 
+      format: 'umd',
+      name: 'adAxios',
+    },
+    external: ['axios'],
     plugins: [
       typescript(),
       buble(),
