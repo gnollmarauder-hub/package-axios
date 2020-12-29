@@ -9,13 +9,15 @@
     <script>
       console.log()
       const request = new adAxios({
-        baseUrl: 'https://api.github.com/users/solomonxie'
+        baseUrl: 'https://api.github.com'
       })
-      request.getInstance({
-        method: 'get',
-        url: '/users/solomonxie'
-      })().then(() => {
-        debugger
+      const realApi = request.getInstance('/users/solomonxie', {
+        method: 'get'
+      })
+      realApi({
+        test: 1
+      }).then(res => {
+        console.info(134)
       })
     </script>
   </body>

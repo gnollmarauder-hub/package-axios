@@ -11,14 +11,16 @@ interface axiosConfig {
   baseUrl: string
   timeout: number
 }
-interface apiParams {
+interface options {
   method: 'post' | 'get' | 'put' | 'delete',
-  url: string,
-  data: any
+  successTxt: string,
+  failTxt: string,
+  data: any,
+  params: any
 }
 
 export {
   response,
   axiosConfig,
-  apiParams
+  options
 }

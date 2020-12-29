@@ -1,9 +1,8 @@
 import axios from 'axios'
-import { axiosConfig, apiParams } from './types/index'
+import { axiosConfig, options } from './types/index'
 export default class adAxios {
   instance: any
   constructor (options: axiosConfig) {
-    const { baseUrl } = options
     this.create(options)
   }
 
@@ -17,10 +16,31 @@ export default class adAxios {
 
   }
   static getCookieData () {}
-  getInstance (params: apiParams) {
+  /**
+   * @param url
+   * @param params { axios 配置 比如请求方式 } 
+   */
+  getInstance (url: string, options: options) {
     return params => {
-      return this.instance({
-        ...params
+      if (options) {
+        options.data = params
+        options.params = params
+      }
+      return  new Promise ((resolve, reject) => {
+        this.instance({
+          url,
+          ...options
+        }).then (res => {
+          if (res.success && options.successTxt) {
+            console.log(options.successTxt)
+          } else {
+            if(options.failTxt) console.error(options.failTxt)
+          }
+          resolve(res)
+        }).catch (err => {
+          if(options.failTxt) console.trace(options.failTxt)
+          reject(err)
+        })
       })
     }
   }
