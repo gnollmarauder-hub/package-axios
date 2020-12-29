@@ -1,0 +1,27 @@
+{
+  "name": "package-axios",
+  "version": "1.0.0",
+  "description": "包装axios,适应业务需要",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c ./build/rollup.config.prod.js",
+    "dev": "rollup -w -c ./build/rollup.config.dev.js"
+  },
+  "keywords": [
+    "axios",
+    "ts"
+  ],
+  "author": "dairan",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-typescript": "^8.1.0",
+    "rollup": "^2.35.1",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "typescript": "^4.1.3"
+  }
+}
