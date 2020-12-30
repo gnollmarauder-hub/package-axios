@@ -1,7 +1,10 @@
 import axios from 'axios'
 import { axiosConfig, options } from './types/index'
+import { setHeaders } from './plugins/axios/axios.handleRequest'
+import handleResponse from './plugins/axios/axios.handleResponse'
 export default class adAxios {
   instance: any
+  pureInstance: any
   constructor (options: axiosConfig) {
     this.create(options)
   }
@@ -11,9 +14,8 @@ export default class adAxios {
       baseURL: options.baseUrl,
       timeout: options.timeout
     })
-  }
-  handle (data, options) {
-
+    setHeaders(this.instance)
+    handleResponse(this.instance)
   }
   static getCookieData () {}
   /**
@@ -43,5 +45,8 @@ export default class adAxios {
         })
       })
     }
+  }
+  getPureInstance () {
+    
   }
 }

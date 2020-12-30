@@ -11,13 +11,14 @@ module.exports = [
     input: resolveFile('src/index.ts'),
     output: {
       globals: {
-        'axios': 'axios'
+        'axios': 'axios',
+        'js-cookie': 'Cookies'
       },
       file: resolveFile('dist/index.js'),
       format: 'umd',
       name: 'adAxios',
     },
-    external: ['axios'],
+    external: ['axios', 'js-cookie'],
     plugins: [
       typescript(),
       buble(),

@@ -16,7 +16,8 @@ interface options {
   successTxt: string,
   failTxt: string,
   data: any,
-  params: any
+  params: any,
+  transferRequest: any
 }
 
 export {
