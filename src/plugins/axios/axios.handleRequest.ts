@@ -34,7 +34,7 @@ export function handleResponse (instance) {
     instance.interceptors.response.use(res => {
       const { config } = res
       pendingPool.delete(config.url)
-      return res
+      return res.data
     }, err => {
         const { config } = err
         if (!err) return Promise.reject(err)
@@ -52,5 +52,6 @@ export function handleResponse (instance) {
                 err.message = '连接服务器失败!'
             }
         }
+        return Promise.reject(err)
     })
 }

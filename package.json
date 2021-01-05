@@ -1,8 +1,8 @@
 {
   "name": "package-axios",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "包装axios,适应业务需要",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "rollup -c ./build/rollup.config.prod.js",
     "dev": "rollup -w -c ./build/rollup.config.dev.js"

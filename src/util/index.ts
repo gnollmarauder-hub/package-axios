@@ -9,10 +9,10 @@ const COOKIE_DATA = {
 export function getRequestHeader () {
   return {
     Authorization: Cookies.get('BEARER_TOKEN'),
-    // 'W-FLOW': Cookies.get('W-FLOW') || 'default',
-    // 'W-SEQ': Cookies.get('W-SEQ') || '1569595974015_2',
-    // 'W-EVENT': Cookies.get('W-EVENT') || null,
-    // ip: Cookies.get('ip') || 'http://127.0.0.1'
+    'W-FLOW': Cookies.get('W-FLOW') || 'default',
+    'W-SEQ': Cookies.get('W-SEQ') || '1569595974015_2',
+    'W-EVENT': Cookies.get('W-EVENT') || null,
+    ip: Cookies.get('ip') || 'http://127.0.0.1'
   }
 }
 
