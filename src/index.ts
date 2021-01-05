@@ -39,11 +39,12 @@ export default class adAxios {
   cancelFn () {}
   genPromise (instance, url, options) {
     return params => {
-      if (options) {
+      if (!options.hasOwnProperty('method') || !options.method) options.method = 'post'
+      if (options.method) {
         options.data = params || {}
+      } else {
         options.params = params || {}
       }
-      if (options.hasOwnProperty('method')) options.method = 'post'
       return  new Promise ((resolve, reject) => {
         instance({
           baseURL: this.options.baseUrl,
