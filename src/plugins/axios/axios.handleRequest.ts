@@ -45,11 +45,11 @@ export function handleResponse (instance) {
             // eg: 超时；断网；请求重复被取消；主动取消请求；
             // 错误信息err传入isCancel方法，可以判断请求是否被取消
             if (axios.isCancel(err)) {
-                throw new axios.Cancel(err.message || `请求'${config.url}'被取消`)
+              throw new axios.Cancel(err.message || `请求'${config.url}'被取消`)
             } else if (err.stack && err.stack.includes('timeout')) {
-                err.message = '请求超时!'
+              err.message = '请求超时!'
             } else {
-                err.message = '连接服务器失败!'
+              err.message = '连接服务器失败!'
             }
         }
         return Promise.reject(err)
