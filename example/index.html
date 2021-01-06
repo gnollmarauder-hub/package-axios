@@ -24,12 +24,12 @@
         })
         realApi({
           test: 1
-        }).then(res => {
+        }).then(function (res) {
           document.getElementsByTagName('p')[0].innerHTML = JSON.stringify(res.data)
         })
-        realPureApi().then(res => {
+        realPureApi().then(function (res) {
           document.getElementsByTagName('p')[0].innerHTML = JSON.stringify(res.data)
-        }).catch(err => {
+        }).catch(function (err) {
           console.log(err, '124')
         })
         source.cancel('134')

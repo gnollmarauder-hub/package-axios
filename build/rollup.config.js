@@ -1,6 +1,6 @@
 const path = require('path');
-const buble = require('@rollup/plugin-buble'); 
 const typescript = require('@rollup/plugin-typescript');
+const { babel }  = require('@rollup/plugin-babel')
 
 const resolveFile = function(filePath) {
   return path.join(__dirname, '..', filePath)
@@ -21,7 +21,17 @@ module.exports = [
     external: ['axios', 'js-cookie'],
     plugins: [
       typescript(),
-      buble(),
+      babel({
+        babelrc: false,
+        babelHelpers: 'runtime',
+        presets: [['@babel/preset-env', { 
+          modules: false
+        }]],
+        plugins: [["@babel/plugin-transform-runtime", {
+          corejs: 3,
+          useESModules: true
+        }]]
+      })
     ],
   },
 ]
